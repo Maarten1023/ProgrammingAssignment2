@@ -21,14 +21,14 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function checks if a matrix already has a cached inverse. If so it 'gets' the inverse, if not it calculates the inverse 
 ## and 'sets' it in the parent enivronment.
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x) {
         m <- x$getinv_matrix()
         if(!is.null(m)) {
         message("getting cached data")
         return(m)
 }
 data <- x$get()
-m <- solve(data, ...)
+m <- solve(data)
 x$setinv_matrix(m)
 m
 }
